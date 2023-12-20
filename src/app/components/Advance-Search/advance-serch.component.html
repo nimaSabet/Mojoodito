@@ -1,0 +1,18 @@
+<p-toast position="top-right"></p-toast>
+<p-dialog [(visible)]="SearchDialog" [style]="{width: '450px'}" header="Customer Details" [modal]="true" [closable]="false" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <form [formGroup]="SearchValue">
+        <div class="p-field">
+
+            <span class="p-float-label input-margin">
+                <p-inputNumber #search (keyup.enter)="SearchCustomer()" inputId="BankAccountNumber" mode="decimal" [useGrouping]="false" formControlName="BankAccountNumber"></p-inputNumber>
+                <label for="BankAccountNumber">Bank account number</label>
+            </span>
+        </div>
+    </form>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="closeDialog()"></button>
+        <button pButton pRipple label="Search" icon="pi pi-search" class="p-button-text" (click)="SearchCustomer()"></button>
+    </ng-template>
+</p-dialog>
